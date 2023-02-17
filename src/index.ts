@@ -1,5 +1,7 @@
 import { REGEX_PARSE, UNITS } from './constants'
 
+export { cache } from './decorators'
+
 import type {
   Unit,
   UnitFullNameLower,
