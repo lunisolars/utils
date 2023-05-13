@@ -1,4 +1,4 @@
-import { toInt, hasProps } from '../src/func'
+import { toInt, hasProps } from '../lib/func'
 
 describe('test toInt()', () => {
   it('test toInt 1', () => {

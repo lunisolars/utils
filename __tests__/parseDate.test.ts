@@ -1,4 +1,4 @@
-import { string2DateDict, dateDict2Date } from '../src/parseDate'
+import { string2DateDict, dateDict2Date } from '../lib/parseDate'
 
 describe('test string2DateDict()', () => {
   it('string2DateDict 2023-05-12 17:10', () => {

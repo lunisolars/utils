@@ -7,7 +7,7 @@ import fs from 'fs'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json', { encoding: 'utf8' }))
 
-const input = 'src/index.ts'
+const input = 'lib/index.ts'
 const rollupConfig = [
   defineConfig({
     input,

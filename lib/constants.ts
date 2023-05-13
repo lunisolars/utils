@@ -18,8 +18,13 @@ export const UNITS = {
   cy: 'char8year'
 }
 
-// parse
+/**
+ * 用于解析时间字符串的正则
+ */
 export const REGEX_PARSE =
   /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/
 
+/**
+ * 一天共有多少毫秒
+ */
 export const DAY_MS = 24 * 60 * 60 * 1000

@@ -1,6 +1,6 @@
 import lunisolar from 'lunisolar'
 
-import * as utils from '../src/index'
+import * as utils from '../lib/index'
 
 describe('test utils', () => {
   it('prettyUnit', () => {

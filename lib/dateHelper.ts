@@ -59,7 +59,7 @@ export function jdms2hms(
     hour,
     minute,
     second,
-    millis: f
+    millisecond: f
   }
 }
 
