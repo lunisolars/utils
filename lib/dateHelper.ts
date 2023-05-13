@@ -1,5 +1,4 @@
-import { toInt } from './func'
-import type { Unit, UnitFullNameLower, DateDict } from '../types/types.js'
+import type { Unit, UnitFullNameLower } from '../types/types'
 import { UNITS } from './constants'
 
 /**
@@ -39,28 +38,6 @@ export const computeSBValue = (stemValue: number, branchValue: number): number =
   // 如果一个为奇数一个为偶数，则不能组合
   if ((stemValue + branchValue) % 2 !== 0) throw new Error('Invalid SB value')
   return (stemValue % 10) + ((6 - (branchValue >> 1) + (stemValue >> 1)) % 6) * 10
-}
-
-export function dateDict2jdms(d: DateDict): number {
-  const ms = d.millisecond ?? 0
-  return d.hour * 60 * 60 * 1000 + d.minute * 60 * 1000 + d.second * 1000 + ms
-}
-
-export function jdms2hms(
-  jdms: number
-): Pick<Required<DateDict>, 'hour' | 'minute' | 'second' | 'millisecond'> {
-  const hour = toInt(jdms / (60 * 60 * 1000))
-  let f = jdms - hour * 60 * 60 * 1000
-  const minute = toInt(f / (60 * 1000))
-  f -= minute * (60 * 1000)
-  const second = toInt(f / 1000)
-  f -= second
-  return {
-    hour,
-    minute,
-    second,
-    millisecond: f
-  }
 }
 
 /**

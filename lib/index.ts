@@ -4,17 +4,17 @@ export {
   prettyUnit,
   getTrigramValueByStem,
   computeSBValue,
-  dateDict2jdms,
-  jdms2hms,
   computeRatStem,
   computeTriadE5Value,
   computeGroup6E5Value
 } from './dateHelper'
 
-export { toInt, hasProps, twoList2Dict, isNumber } from './func'
+export { dateDict2jdms, jdms2hms, gre2jdn, jdn2gre, modDayMs } from './jd'
+export { toInt, hasProps, twoList2Dict, isNumber, setReadonly, getFractionalPart } from './func'
 export { getTranslation, defineLocale } from './lang'
 export {
   getDefaultDateDict,
+  date2DateDict,
   string2DateDict,
   dateDict2Date,
   dateDictYMD2Date,
