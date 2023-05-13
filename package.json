@@ -1,6 +1,6 @@
 {
   "name": "@lunisolar/utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The lunisolar utils",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lunisolar-js/utils.git"
+    "url": "git+https://github.com/lunisolars/utils.git"
   },
   "author": "Natron Kan (waterbeside)",
   "license": "MIT",
