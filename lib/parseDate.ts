@@ -1,4 +1,4 @@
-import { DateDict, DateParamType, YMD } from './types'
+import { DateDict, DateParamType, YMD } from '../types/types'
 import { REGEX_PARSE } from './constants'
 import { hasProps } from './func'
 

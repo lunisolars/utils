@@ -1,5 +1,5 @@
 import { toInt } from './func'
-import type { Unit, UnitFullNameLower, DateDict } from './types.js'
+import type { Unit, UnitFullNameLower, DateDict } from '../types/types.js'
 import { UNITS } from './constants'
 
 /**
@@ -61,20 +61,6 @@ export function jdms2hms(
     second,
     millisecond: f
   }
-}
-
-/**
- * utc偏移值
- * @param instance lunisolar實例
- */
-export const padZoneStr = (instance: lunisolar.Lunisolar) => {
-  const negMinutes = -instance.utcOffset()
-  const minutes = Math.abs(negMinutes)
-  const hourOffset = Math.floor(minutes / 60)
-  const minuteOffset = minutes % 60
-  return `${negMinutes <= 0 ? '+' : '-'}${String(hourOffset).padStart(2, '0')}:${String(
-    minuteOffset
-  ).padStart(2, '0')}`
 }
 
 /**
