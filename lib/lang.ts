@@ -1,3 +1,4 @@
+import type { LocaleData } from '../types/localeData'
 /**
  * 取得譯文
  * @param key 譯文key
