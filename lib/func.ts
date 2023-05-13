@@ -38,3 +38,25 @@ export function twoList2Dict<T = any>(keyList: string[], valueList: T[]): { [key
 export function isNumber(value: number | string): boolean {
   return !isNaN(Number(value))
 }
+
+/**
+ * 设置对象的所有属性为只读
+ * @param obj 对象
+ * @returns obj
+ */
+export const setReadonly = <T extends Object>(obj: T): T => {
+  for (const key in obj) {
+    Object.defineProperty(obj, key, {
+      writable: false
+    })
+  }
+  return obj
+}
+
+/**
+ * 取得数字的小数部分
+ */
+export function getFractionalPart(val: number) {
+  const strSplit = String(val).split('.')
+  return Number(`${strSplit[0]}.${strSplit[1] ?? 0}`)
+}
