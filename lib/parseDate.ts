@@ -16,6 +16,30 @@ export const getDefaultDateDict = (): Required<DateDict> => {
 }
 
 /**
+ * Date对象转为dateDict
+ * @param date Date对象
+ * @returns dateDict
+ */
+export function date2DateDict(date?: Date | Partial<DateDict> | number): DateDict {
+  if (typeof date === 'number') {
+    date = new Date(date)
+  }
+  if (date instanceof Date) {
+    return getDefaultDateDict()
+  }
+  const now = new Date()
+  return {
+    year: date?.year ?? now.getUTCFullYear(),
+    month: date?.month ?? now.getUTCMonth() + 1,
+    day: date?.day ?? now.getUTCDate(),
+    hour: typeof date === 'undefined' ? now.getUTCHours() : date.hour ?? 0,
+    minute: typeof date === 'undefined' ? now.getUTCMinutes() : date.minute ?? 0,
+    second: typeof date === 'undefined' ? now.getUTCSeconds() : date.second ?? 0,
+    millisecond: typeof date === 'undefined' ? now.getUTCSeconds() : date.millisecond ?? 0
+  }
+}
+
+/**
  * 日期字符串转日期字典
  * @param str 日期字符串
  * @returns 日期字典对象
