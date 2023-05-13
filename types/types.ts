@@ -1,4 +1,3 @@
-import type lunisolar from 'lunisolar'
 type GreUnitFullName =
   | 'millisecond'
   | 'second'
