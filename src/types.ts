@@ -26,16 +26,21 @@ export type UnitFullName = GreUnitFullName | LunarUnitFullName | Char8UnitFullNa
 export type UnitFullNameLower = GreUnitFullName | LunarUnitFullNameLower | Char8UnitFullNameLower
 export type Unit = GreUnit | LunarUnit | Char8Unit
 
-type DateConfigType = lunisolar.DateConfigType
-export type DateParamType = DateConfigType | lunisolar.Lunisolar
-
-export type StemOrBranchValueFunc = (
-  lsr: lunisolar.Lunisolar,
-  ymdh: 'year' | 'month' | 'day' | 'hour',
-  div?: number
-) => number
+type DateConfigType = string | number | Date | null | undefined
+export type DateParamType = DateConfigType | { toDate(): Date; [key: string]: any }
 
 export type YMDH = 'year' | 'month' | 'day' | 'hour'
+export type YMD = 'year' | 'month' | 'day'
 
 export type YmdhSu = 'Y' | 'M' | 'D' | 'H'
 export type YmdhSl = 'y' | 'm' | 'd' | 'h'
+
+export type DateDict = {
+  year: number
+  month: number
+  day: number
+  hour: number
+  minute: number
+  second: number
+  millisecond?: number
+}

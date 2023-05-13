@@ -21,3 +21,5 @@ export const UNITS = {
 // parse
 export const REGEX_PARSE =
   /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/
+
+export const DAY_MS = 24 * 60 * 60 * 1000
