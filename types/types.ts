@@ -46,3 +46,8 @@ export type DateDict = {
 
 export type DateDictYMD = Pick<DateDict, YMD>
 export type DateDictPart = DateDictYMD & Partial<Omit<DateDict, YMD>>
+
+export type JDDict = {
+  jdn: number
+  jdms?: number
+}

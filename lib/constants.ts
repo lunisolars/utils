@@ -28,3 +28,5 @@ export const REGEX_PARSE =
  * 一天共有多少毫秒
  */
 export const DAY_MS = 24 * 60 * 60 * 1000
+
+export const JDN_1970 = 2440587.5

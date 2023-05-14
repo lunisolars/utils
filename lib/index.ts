@@ -1,4 +1,4 @@
-export { REGEX_PARSE, UNITS } from './constants'
+export { REGEX_PARSE, UNITS, DAY_MS, JDN_1970 } from './constants'
 export { cache } from './cache'
 export {
   prettyUnit,
@@ -9,7 +9,17 @@ export {
   computeGroup6E5Value
 } from './dateHelper'
 
-export { dateDict2jdms, jdms2hms, gre2jdn, jdn2DateDict, modDayMs } from './jd'
+export {
+  dateDict2jdms,
+  jdms2hms,
+  gre2jdn,
+  jdn2DateDict,
+  modDayMs,
+  jdn2timestamp,
+  timestamp2jdn,
+  jdDict2timestamp,
+  timestamp2jdDict
+} from './jd'
 export { toInt, hasProps, twoList2Dict, isNumber, setReadonly, getFractionalPart } from './func'
 export { getTranslation, defineLocale } from './lang'
 export {

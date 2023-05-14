@@ -1,6 +1,6 @@
-import type { DateDict } from '../types/types'
+import type { DateDict, JDDict } from '../types/types'
 import { toInt } from './func'
-import { DAY_MS } from './constants'
+import { DAY_MS, JDN_1970 } from './constants'
 import { date2DateDict } from './parseDate'
 
 export function dateDict2jdms(d: DateDict): number {
@@ -133,4 +133,48 @@ export function jdn2DateDict(jdn: number, isUTC = false, jdms?: number): Require
     }
   }
   return r
+}
+
+/**
+ * jdn to timestamp
+ * @param jdn Julian Day Number
+ * @returns timestamp
+ */
+export function jdn2timestamp(jdn: number) {
+  return (jdn - JDN_1970) * 86400 * 1000
+}
+
+/**
+ * timestamp to jdn
+ * @param t timestamp
+ * @returns Julian Day Number
+ */
+export function timestamp2jdn(t: number) {
+  return t / (86400 * 1000) + JDN_1970
+}
+
+/**
+ * jdn dict to timestamp
+ * @param jdDict Julian Day Number Dict
+ * @returns timestamp
+ */
+export function jdDict2timestamp(jdDict: JDDict) {
+  let jdn = jdDict.jdn
+  const jdms = jdDict.jdms
+  if (!jdms) return jdn2timestamp(jdn)
+  return Math.floor(jdn - 0.5 - JDN_1970) * 86400 * 1000 + jdms
+}
+
+/**
+ * timestamp to jdDict
+ * @param jdDict Julian Day Number Dict
+ * @returns timestamp
+ */
+export function timestamp2jdDict(t: number): Required<JDDict> {
+  const jdn = timestamp2jdn(t)
+  const jdms = t - Math.floor(jdn - 0.5 - JDN_1970) * 86400 * 1000
+  return {
+    jdn,
+    jdms
+  }
 }
