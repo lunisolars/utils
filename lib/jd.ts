@@ -3,9 +3,13 @@ import { toInt } from './func'
 import { DAY_MS, JDN_1970 } from './constants'
 import { date2DateDict } from './parseDate'
 
-export function dateDict2jdms(d: DateDict): number {
+export function dateDict2jdms(d: DateDict, isUTC = false): number {
+  let offset = 0
+  if (!isUTC) {
+    offset += new Date().getTimezoneOffset() * 60 * 1000
+  }
   const ms = d.millisecond ?? 0
-  return d.hour * 60 * 60 * 1000 + d.minute * 60 * 1000 + d.second * 1000 + ms
+  return d.hour * 60 * 60 * 1000 + d.minute * 60 * 1000 + d.second * 1000 + ms + offset
 }
 
 export function jdms2hms(
@@ -141,7 +145,7 @@ export function jdn2DateDict(jdn: number, isUTC = false, jdms?: number): Require
  * @returns timestamp
  */
 export function jdn2timestamp(jdn: number) {
-  return (jdn - JDN_1970) * 86400 * 1000
+  return Math.floor((jdn - JDN_1970) * 86400 * 1000)
 }
 
 /**
