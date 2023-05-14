@@ -9,7 +9,7 @@ export {
   computeGroup6E5Value
 } from './dateHelper'
 
-export { dateDict2jdms, jdms2hms, gre2jdn, jdn2gre, modDayMs } from './jd'
+export { dateDict2jdms, jdms2hms, gre2jdn, jdn2DateDict, modDayMs } from './jd'
 export { toInt, hasProps, twoList2Dict, isNumber, setReadonly, getFractionalPart } from './func'
 export { getTranslation, defineLocale } from './lang'
 export {
@@ -20,3 +20,5 @@ export {
   dateDictYMD2Date,
   parseDate
 } from './parseDate'
+
+export { DateDict, YMDH } from '../types/types'

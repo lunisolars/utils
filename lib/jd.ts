@@ -69,7 +69,7 @@ export function gre2jdn(date?: Date | Partial<DateDict>, isUTC = false): number 
  * @param isUTC is UTC
  * @returns  Gregorian calendar date dict
  */
-export function jdn2gre(jdn: number, isUTC = false, jdms?: number): Required<DateDict> {
+export function jdn2DateDict(jdn: number, isUTC = false, jdms?: number): Required<DateDict> {
   if (!isUTC) {
     const timezoneOffset = -new Date().getTimezoneOffset()
     jdn += timezoneOffset / (24 * 60)

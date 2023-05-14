@@ -43,3 +43,6 @@ export type DateDict = {
   second: number
   millisecond?: number
 }
+
+export type DateDictYMD = Pick<DateDict, YMD>
+export type DateDictPart = DateDictYMD & Partial<Omit<DateDict, YMD>>

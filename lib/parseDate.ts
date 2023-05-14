@@ -1,4 +1,4 @@
-import { DateDict, DateParamType, YMD } from '../types/types'
+import { DateDict, DateParamType, DateDictPart } from '../types/types'
 import { REGEX_PARSE } from './constants'
 import { hasProps } from './func'
 
@@ -20,7 +20,7 @@ export const getDefaultDateDict = (): Required<DateDict> => {
  * @param date Date对象
  * @returns dateDict
  */
-export function date2DateDict(date?: Date | Partial<DateDict> | number): DateDict {
+export function date2DateDict(date?: Date | Partial<DateDict> | number): Required<DateDict> {
   if (typeof date === 'number') {
     date = new Date(date)
   }
@@ -59,9 +59,6 @@ export const string2DateDict = (str: string): Required<DateDict> => {
   }
   return res
 }
-
-type DateDictYMD = Pick<DateDict, YMD>
-type DateDictPart = DateDictYMD & Partial<Omit<DateDict, YMD>>
 
 /**
  * 日期字典对象转Date对象
