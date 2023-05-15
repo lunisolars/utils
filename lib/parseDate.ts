@@ -25,7 +25,15 @@ export function date2DateDict(date?: Date | Partial<DateDict> | number): Require
     date = new Date(date)
   }
   if (date instanceof Date) {
-    return getDefaultDateDict()
+    return {
+      year: date.getUTCFullYear(),
+      month: date.getUTCMonth() + 1,
+      day: date.getUTCDate(),
+      hour: date.getUTCHours(),
+      minute: date.getUTCMinutes(),
+      second: date.getUTCSeconds(),
+      millisecond: date.getUTCMilliseconds()
+    }
   }
   const now = new Date()
   return {
