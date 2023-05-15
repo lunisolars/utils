@@ -9,7 +9,7 @@ export function dateDict2jdms(d: DateDict, isUTC = false): number {
     offset += new Date().getTimezoneOffset() * 60 * 1000
   }
   const ms = d.millisecond ?? 0
-  return d.hour * 60 * 60 * 1000 + d.minute * 60 * 1000 + d.second * 1000 + ms + offset
+  return modDayMs(d.hour * 60 * 60 * 1000 + d.minute * 60 * 1000 + d.second * 1000 + ms + offset)
 }
 
 export function jdms2hms(
@@ -29,7 +29,7 @@ export function jdms2hms(
   }
 }
 
-export function modDayMs(jdms: number, addValue: number): number {
+export function modDayMs(jdms: number, addValue: number = 0): number {
   return (DAY_MS + jdms + addValue) % DAY_MS
 }
 
@@ -73,7 +73,7 @@ export function gre2jdn(date?: Date | Partial<DateDict>, isUTC = false): number 
  * @param isUTC is UTC
  * @returns  Gregorian calendar date dict
  */
-export function jdn2DateDict(jdn: number, isUTC = false, jdms?: number): Required<DateDict> {
+export function jdn2dateDict(jdn: number, isUTC = false, jdms?: number): Required<DateDict> {
   if (!isUTC) {
     const timezoneOffset = -new Date().getTimezoneOffset()
     jdn += timezoneOffset / (24 * 60)

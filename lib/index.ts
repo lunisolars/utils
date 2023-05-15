@@ -13,7 +13,7 @@ export {
   dateDict2jdms,
   jdms2hms,
   gre2jdn,
-  jdn2DateDict,
+  jdn2dateDict,
   modDayMs,
   jdn2timestamp,
   timestamp2jdn,
