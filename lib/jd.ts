@@ -165,8 +165,9 @@ export function timestamp2jdn(t: number) {
 export function jdDict2timestamp(jdDict: JDDict) {
   let jdn = jdDict.jdn
   const jdms = jdDict.jdms
-  if (!jdms) return jdn2timestamp(jdn)
-  return Math.floor(jdn - 0.5 - JDN_1970) * 86400 * 1000 + jdms
+  const t = jdn2timestamp(jdn)
+  if (!jdms) return t
+  return Math.floor(t / (86400 * 1000)) * 86400 * 1000 + jdms
 }
 
 /**
@@ -176,7 +177,7 @@ export function jdDict2timestamp(jdDict: JDDict) {
  */
 export function timestamp2jdDict(t: number): Required<JDDict> {
   const jdn = timestamp2jdn(t)
-  const jdms = t - Math.floor(jdn - 0.5 - JDN_1970) * 86400 * 1000
+  const jdms = t - Math.floor(t / (86400 * 1000)) * 86400 * 1000
   return {
     jdn,
     jdms
