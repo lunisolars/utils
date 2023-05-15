@@ -1,6 +1,6 @@
 {
   "name": "@lunisolar/utils",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "The lunisolar utils",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
