@@ -54,6 +54,8 @@ export function date2DateDict(date?: Date | Partial<DateDict> | number): Require
  */
 export const string2DateDict = (str: string): Required<DateDict> => {
   const res = getDefaultDateDict()
+  str = str.replace('T', ' ')
+  str = str.replace('Z', '')
   const d = str.match(REGEX_PARSE) as any
   if (d) {
     const ms = (d[7] || '0').substring(0, 3)

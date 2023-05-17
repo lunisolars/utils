@@ -12,6 +12,18 @@ describe('test string2DateDict()', () => {
       millisecond: 0
     })
   })
+
+  it('string2DateDict 2023-05-12 17:10', () => {
+    expect(string2DateDict('2023-05-12T17:10:00.000Z')).toEqual({
+      year: 2023,
+      month: 5,
+      day: 12,
+      hour: 17,
+      minute: 10,
+      second: 0,
+      millisecond: 0
+    })
+  })
 })
 
 describe('test dateDict2Date()', () => {
