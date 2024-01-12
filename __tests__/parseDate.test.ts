@@ -26,6 +26,30 @@ describe('test string2DateDict()', () => {
   })
 })
 
+it('string2DateDict BC1-05-12', () => {
+  expect(string2DateDict('BC1-05-12')).toEqual({
+    year: 0,
+    month: 5,
+    day: 12,
+    hour: 0,
+    minute: 0,
+    second: 0,
+    millisecond: 0
+  })
+})
+
+it('string2DateDict BC200-05-12', () => {
+  expect(string2DateDict('BC200-10-12')).toEqual({
+    year: -199,
+    month: 10,
+    day: 12,
+    hour: 0,
+    minute: 0,
+    second: 0,
+    millisecond: 0
+  })
+})
+
 describe('test dateDict2Date()', () => {
   it('dateDict2Date 2023-05-12 17:10 UTC', () => {
     const date = dateDict2Date(

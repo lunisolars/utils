@@ -56,10 +56,15 @@ export const string2DateDict = (str: string): Required<DateDict> => {
   const res = getDefaultDateDict()
   str = str.replace('T', ' ')
   str = str.replace('Z', '')
+  let isBC = false
+  if (str.toLowerCase().indexOf('bc') === 0) {
+    isBC = true
+    str = str.slice(2)
+  }
   const d = str.match(REGEX_PARSE) as any
   if (d) {
     const ms = (d[7] || '0').substring(0, 3)
-    res.year = Number(d[1] || res.year)
+    res.year = isBC ? -Math.abs(Number(d[1] || res.year)) + 1 : Number(d[1] || res.year)
     res.month = Number(d[2] || 0)
     res.day = Number(d[3] || 1)
     res.hour = Number(d[4] || 0)
